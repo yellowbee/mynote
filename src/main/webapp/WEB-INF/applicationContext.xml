@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+xmlns:context="http://www.springframework.org/schema/context"
+xmlns:jdbc="http://www.springframework.org/schema/jdbc"
+xsi:schemaLocation="
+http://www.springframework.org/schema/jdbc
+http://www.springframework.org/schema/jdbc/spring-jdbc-3.1.xsd
+http://www.springframework.org/schema/beans
+http://www.springframework.org/schema/beans/spring-beans-3.1.xsd
+http://www.springframework.org/schema/tx
+http://www.springframework.org/schema/tx/spring-tx-3.1.xsd
+http://www.springframework.org/schema/context
+http://www.springframework.org/schema/context/spring-context-3.1.xsd">
+
+	<bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+		<property name="driverClassName" value="com.mysql.jdbc.Driver" />
+		<property name="url" value="jdbc:mysql://localhost:3306/mydoc" />
+		<property name="username" value="mydoc" />
+		<property name="password" value="mydoc" />
+	</bean>
+	
+	<!-- <bean id="transactionManager" class="org.springframework.orm.hibernate3.HibernateTransactionManager">
+		<property name="sessionFactory" ref="sessionFactory"/>
+	</bean> -->
+	
+	<!-- <tx:annotation-driven/> -->
+	
+	<!-- <context:component-scan base-package="com.apress.prospring3.ch9" /> -->
+	
+	<bean id="sessionFactory" class="org.springframework.orm.hibernate3.LocalSessionFactoryBean">
+		<property name="dataSource" ref="dataSource"/>
+		<!-- <property name="packagesToScan" value="com.apress.prospring3.ch9.domain"/> -->
+		<property name="hibernateProperties">
+			<props>
+				<prop key="hibernate.dialect">org.hibernate.dialect.MySQLDialect</prop>
+				<prop key="hibernate.max_fetch_depth">3</prop>
+				<prop key="hibernate.jdbc.fetch_size">50</prop>
+				<prop key="hibernate.jdbc.batch_size">10</prop>
+				<prop key="hibernate.show_sql">true</prop>
+			</props>
+		</property>
+		<property name="mappingResources">
+			<list>
+				<value>com/aidu/mydoc/bo/DocNode.hbm.xml</value>
+			</list>
+		</property>
+	</bean>
+	
+	<!-- <bean id="hibernateUtil" class="org.hibernate.SessionFactory.HibernateUtil">
+		<property name="sessionFactory" ref="sessionFactory" />
+	</bean> -->
+	
+	<bean id="docNodeDao" class="com.aidu.mydoc.dao.hibernate.DocNodeDaoHib">
+		<property name="sessionFactory" ref="sessionFactory" />
+	</bean>
+	
+	<!--
+	<bean id="helloAction" class="com.aidu.mydoc.struts.HelloAction" scope="prototype">
+		<property name="docNodeDao" ref="docNodeDao"/>
+	</bean>
+	<bean id="docAction" class="com.aidu.mydoc.struts.DocAction" scope="prototype">
+		<property name="docNodeDao" ref="docNodeDao"/>
+	</bean>
+	<bean id="contentAction" class="com.aidu.mydoc.struts.ContentAction" scope="prototype">
+	</bean>
+	<bean id="docPageAction" class="com.aidu.mydoc.struts.DocPageAction" scope="prototype">
+	</bean> -->
+</beans>

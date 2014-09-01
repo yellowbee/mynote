@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+"-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+"http://struts.apache.org/dtds/struts-2.0.dtd">
+
+<struts>
+    <package name="default" extends="struts-default,json-default" namespace="/">
+    	<!-- <action name="hello" class="com.aidu.mydoc.struts.HelloAction"> -->
+    	<action name="hello" class="helloAction">
+    		<result>
+    			/Hello.jsp
+    		</result>
+    	</action>
+    	
+    	<action name="content" class="contentAction">
+    		<result>
+    			/jsp/content.jsp
+    		</result>
+    	</action>
+
+    	<action name="doc" class="docAction">
+    		<result name="saved">
+    			/jsp/saved.jsp
+    		</result>
+    		<result name="childrenloaded" type="json">
+    		</result>
+    	</action>
+    	
+    	<action name="docpage" class="docPageAction">
+    		<result name="pagetoadd">
+    			jsp/newDoc.jsp
+    		</result>
+    	</action>
+    </package>
+
+</struts>

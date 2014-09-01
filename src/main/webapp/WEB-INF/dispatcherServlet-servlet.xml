@@ -1,0 +1,44 @@
+<beans xmlns="http://www.springframework.org/schema/beans"
+   xmlns:context="http://www.springframework.org/schema/context"
+   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+   xmlns:mvc="http://www.springframework.org/schema/mvc"
+   xsi:schemaLocation="
+   http://www.springframework.org/schema/beans     
+   http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+   http://www.springframework.org/schema/context 
+   http://www.springframework.org/schema/context/spring-context-3.0.xsd
+   http://www.springframework.org/schema/mvc
+   http://www.springframework.org/schema/mvc/spring-mvc-3.0.xsd">
+
+   <!-- Annotation-based -->
+   <mvc:resources mapping="/resources/**" location="/resources/"/>
+   <context:component-scan base-package="com.aidu.mydoc" />
+   <mvc:annotation-driven />
+	<!-- <bean name="/home" class="com.aidu.mydoc.web.controller.HomeController">
+		<property name="docNodeDao" ref="docNodeDao"/>
+	</bean> -->
+
+	<!-- <bean name="/home" class="com.aidu.web.controller.HomeController">
+		<property name="flightService" ref="flightService" />
+	</bean>
+	
+	<bean name="/search" class="com.aidu.web.controller.SearchFlightsController">
+		<property name="flightService" ref="flightService" />
+	</bean> -->
+	
+	<!-- <bean id="helloAction" class="com.aidu.mydoc.struts.HelloAction" scope="prototype">
+		<property name="docNodeDao" ref="docNodeDao"/>
+	</bean>
+	<bean id="docAction" class="com.aidu.mydoc.struts.DocAction" scope="prototype">
+		<property name="docNodeDao" ref="docNodeDao"/>
+	</bean>
+	<bean id="contentAction" class="com.aidu.mydoc.struts.ContentAction" scope="prototype">
+	</bean>
+	<bean id="docPageAction" class="com.aidu.mydoc.struts.DocPageAction" scope="prototype">
+	</bean> -->
+	
+	<bean id="viewResolver" class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+		<property name="prefix" value="/WEB-INF/jsp/" />
+		<property name="suffix" value=".jsp"/>
+	</bean>
+</beans>

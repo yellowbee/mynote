@@ -1,0 +1,113 @@
+
+body {
+	font-size: 62.5%;
+	margin: 0;
+	padding: 0;
+	background-color: #FFFFFF;
+	position: relative;
+	overflow-y: hidden;
+}
+
+p,h1,h2,h3,h4,h5,h5,ol,ul,a {
+	font-family: "Century Gothic", "Gill Sans", Arial, sans-serif;
+	font-size: 15px;
+	margin: 0px;
+	padding: 0px;
+}
+
+/* #container #banner p {
+	background-color: #c0c0c0;
+} */
+
+/* #content {
+	position: relative;
+    height: 90%;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin-left: 20%;
+    background-color: linen;
+    overflow: auto;
+} */
+
+#my-panel {
+	/* position: fixed;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin-left: 20%; */
+    margin-top: 60px;
+    background-color: linen;
+    height: 90%;
+}
+#menu {
+	/*float: left;
+	position: fixed;
+	width: 20%;	
+	top: 50px; */
+	background: #DCE0D5;
+	height: 100%;
+	overflow-y: auto;
+}
+#display-panel #showText {
+	height: 100%;
+}
+#showText {
+	overflow-y: auto;
+}
+#edit-panel {
+	height: 100%;
+	overfow-y: auto;
+}
+
+#mainedit {
+	position: absolute;
+	bottom: 0;
+	left: 0;
+    width:100%;
+	height:90%;
+}
+
+li {
+	display: inline;
+	margin: 10px;
+}
+
+#navbar-text-pull-right {
+	float: right;
+}
+
+#title, buttonGroup {
+	display: inline;
+}
+
+#footer {
+	margin-top: 50px;
+	margin-bottom: 0;
+	background-color: #C0C0C0;
+	width: 100%;
+	text-align: center;
+}
+
+#copyright {
+	padding: 5px;
+	border-top: 1px solid #000;
+	background-color: #c0c0c0;
+	text-align: center;	
+}
+
+textarea {
+	margin-top: 60px;    
+}
+/* .panel {
+	margin-top: 60px;    
+	height: 600px;  
+	border-color: blue;  
+} */
+#myNavbar {
+   	background-color: #f2f2f2;
+}
+   
+#toggle {
+   	width: 100px;
+   	height: 100px;
+   	border: solid 1px #ccc;
+}
