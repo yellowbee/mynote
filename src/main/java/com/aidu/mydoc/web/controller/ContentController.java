@@ -36,6 +36,7 @@ public class ContentController {
 			request.put("docid", docid);
 			request.put("title_with_space", title_with_space);*/
 		} catch (FileNotFoundException e) {
+			System.out.println("specified document is not on the disk");
 			e.printStackTrace();
 		}
 		return mav;

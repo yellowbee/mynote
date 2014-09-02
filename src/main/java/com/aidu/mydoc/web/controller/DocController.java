@@ -53,6 +53,26 @@ public class DocController {
 		return childrenMap;
 	}
 
+	@RequestMapping(value="/add", produces="application/json")
+	public @ResponseBody Map<String, String> add(@RequestParam String title, @RequestParam String pid) {
+		Map<String, String> docid_map = new HashMap<String, String>();
+		// create a document node and save it to
+		// the database
+		DocNode parent_dn = new DocNode();
+		parent_dn.setId(Integer.parseInt(pid));
+		
+		DocNode dn = new DocNode();
+		dn.setDocName(title);
+		dn.setParent(parent_dn);
+		
+		docNodeDao.save(dn);
+		docid_map.put("docid", String.valueOf(dn.getId()));
+		/*System.out.println("title: " + title_no_space);
+		System.out.println("file does not exist yet");*/
+		logger.info("save doned for doc node with title " + title + " and docid " + dn.getId() );
+		
+		return docid_map;
+	}
 	
 	//public ModelAndView save(@RequestParam("value1") String new_text, @RequestParam String title) {
 	//@RequestMapping(value="/save", method=RequestMethod.POST, headers="Accept=application/json")
