@@ -122,8 +122,8 @@ String basePath = request.getScheme() + "://" + request.getServerName() + ":" + 
 		    });
 		    
 		 	// ---------------- scripts for the modal form Start ------------------------
-		 	var dialog, form,
-        	title = $("form #title");
+		 	var dialog, form;
+        	var child_title = $("form #title");
         	//allFields = $([]).add(name);
 		 	       	
         	// event handler for the button in the dialog
@@ -135,16 +135,16 @@ String basePath = request.getScheme() + "://" + request.getServerName() + ":" + 
 				else {
 					//alert("title to create: " + title.val());
 					// send a request for creating and storing a new node, pid is parent id
-					var url = "app/add?title=" + title.val() + "&pid=" + cur_docid;
+					var url = "app/add?title=" + child_title.val().replace(/ /g, '_') + "&pid=" + cur_docid;
 
-					$.getJSON(url, function(json) {
-	        			var subtree = '';
+					$.getJSON(url, function() {
+	        			/* var subtree = '';
 	        			$.each(json, function(key, value) { // key is 'docid', value is the actual docid
 	        				//var value_with_space = value.replace(/_/g, ' '); // replace all '_' with space character
 	        				//subtree += '<div><div><span class="switch" docid="' + key + '">+&#160;</span><a href="#">' + value + '</a></div><div class="children" style="padding-left:1em"></div></div>';
-	        				subtree += '<div><div><span class="switch" docid="' + value + '">+&#160;</span><a href="' + 'app/content?docid=' + value + '&title=' + cur_title + '">' + cur_title.replace(/_/g, ' ') + '</a></div><div class="children" style="padding-left:1em"></div></div>';
+	        				subtree += '<div><div><span class="switch" docid="' + value + '">+&#160;</span><a href="' + 'app/content?docid=' + value + '&title=' + cur_title.replace(' ', /_/g) + '">' + cur_title.replace(/_/g, ' ') + '</a></div><div class="children" style="padding-left:1em"></div></div>';
 	        			});
-	        			copy_this.parent().next('.children').html(subtree);
+	        			copy_this.parent().next('.children').html(subtree); */
 	        		});
 					dialog.dialog("close");
 				}
