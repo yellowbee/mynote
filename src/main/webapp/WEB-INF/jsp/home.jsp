@@ -6,6 +6,7 @@ String basePath = request.getScheme() + "://" + request.getServerName() + ":" + 
 <%@ page language="java" import="com.aidu.mydoc.bo.DocNode" %>
 <%@ page language="java" import="java.util.Set" %>
 <%@ page isELIgnored ="false" %>
+<%@ page language="java" contentType="text/html; charset=UTF-8" %>
 <html>
 <head>
 <base href="<%=basePath%>" />
@@ -56,7 +57,7 @@ String basePath = request.getScheme() + "://" + request.getServerName() + ":" + 
 				$.ajax({
 				    url : "app/save",
 				    type : "POST",
-				    contentType : "application/json",
+				    contentType : "application/json;charset=UTF-8",
 				    data : JSON.stringify({
 				    	newText : $("textarea#myTextArea").val(),
 				    	title : cur_title
