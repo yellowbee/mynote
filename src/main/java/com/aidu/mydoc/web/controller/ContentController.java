@@ -30,7 +30,7 @@ public class ContentController {
 			
 			String str;
 			while ((str = in.readLine()) != null) {
-				sb.append(str);
+				sb.append(str + "\n");
 			}
 			/*Scanner sc = new Scanner(new File(filename));
 			while (sc.hasNext()) {
